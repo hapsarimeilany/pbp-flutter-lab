@@ -129,6 +129,66 @@ A new Flutter project.
     ```
 
     e. Me-run program counter
+    
+    
+# README TUGAS 8 PBP
+
+1. Jelaskan perbedaan Navigator.push dan Navigator.pushReplacement
+Navigator merupakan widget yang berguna untuk menampilkan konten ke halaman 
+atau layar baru. Perbedaan antara Navigator.push dan Navigator.pushReplacement yaitu:
+   - Navigator.push: menambahkan route lain ke atas tumpukan halaman (stack) saat ini. Halaman baru ditampilkan di atas halaman sebelumnya tanpa menghapus halaman sebelumnya.
+   - Navigator.pushReplacement: konten berpindah ke halaman baru dengan menghapus(menggantikan) halaman sebelumnya.
+
+
+2. Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+   - Navigator: untuk berpindah ke halaman baru
+   - Text: untuk menampilkan teks
+   - Form: untuk menampilkan form
+   - Drawer: untuk menampung daftar halaman yang ada pada aplikasi
+   - Column: untuk memposisikan widget secara vertikal
+   - Row: untuk memposisikan widget secara horizontal
+   - Icon: untuk menampilkan icon 
+   - Padding: untuk menata layout aplikasi
+   - TextFormField: menyediakan tempat untuk input teks pada form 
+   - SingleChildScrollView: untuk membuat halaman yang dapat discroll
+   - TextButton: untuk membuat button pada halaman 
+   - DropdownButton: untuk membuat dropdown button 
+   - TextStyle: untuk styling teks
+
+3. Sebutkan jenis-jenis event yang ada pada Flutter (contoh: onPressed)!
+   - onPressed 
+   - onChanged
+   - onSaved
+
+4. Jelaskan bagaimana cara kerja Navigator dalam "mengganti" halaman dari aplikasi Flutter.
+  
+   Pada pengaplikasian navigator, ketika Navigator.push dijalankan, maka halaman saat ini akan ditimpa dengan halaman baru yang dipush (menggunakan prinsip stack). Setelah dilakukan Navigator.push, halaman yang dapat dilihat oleh user adalah halaman yang terbaru.
+Meskipun digantikan dengan halaman baru, halaman lama tidak akan dihapus kecuali menggunakan Navigator.pushReplacement.
+ 
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+    
+    - Membuat file baru bernama ```drawer.dart``` yang berisi kode untuk membuat drawer yang berisi daftar halaman-halaman lain selain homepage yaitu halaman ```counter_7```, ```Tambah Budget```, dan ```Data Budget```
+    - Import file drawer.dart pada file ```main.dart``` agar drawer dapat terhubung dengan halaman utama aplikasi
+        ```
+        import 'package:flutter/material.dart';
+        import 'package:counter_7/drawer.dart';
+        ```
+    - Membuat file baru bernama ```form.dart``` untuk membuat form yang akan ditampilkan pada halaman ```Tambah Budget```. Form tersebut berisi textField untuk ```Judul``` dengan tipe data String dan ```Nominal``` dengan tipe data integer, dropdown button yang berisi ```pilihan jenis``` budget berupa ```pemasukan```/```pengeluaran```, serta submit button ```Simpan``` untuk menyimpan data-data yang telah diinput.
+    - Membuat file baru bernama ```budget.dart``` untuk menampilkan data pada halaman ```Data Budget```. Data-data tersebut berupa judul, nominal, dan tipe budget yang telah diinput pada halaman ```Tambah Budget```
+    -  Mengimport file ```main.dart```, ```form.dart```, dan ```budget.dart``` pada file ```drawer.dart``` agar ketiga halaman tersebut saling terhubung dengan drawer.
+        ```
+        import 'package:flutter/material.dart';
+        import 'package:counter_7/main.dart';
+        import 'package:counter_7/form.dart';
+        import 'package:counter_7/budget.dart';
+        ```
+    - Mengimport file ```drawer.dart``` pada file ```budget.dart```
+        ```
+        import 'package:flutter/material.dart';
+        import 'package:counter_7/drawer.dart';
+        ```
+
+
 
 REPOSITORY: https://github.com/hapsarimeilany/pbp-flutter-lab.git
 
