@@ -52,7 +52,7 @@ class _BudgetFormPageState extends State<BudgetFormPage> {
                                     child: TextFormField(
                                         decoration: InputDecoration(
                                             hintText: "Contoh: Beli sate pacil",
-                                            labelText: "Judul Budget",
+                                            labelText: "Judul",
                                             // // Menambahkan icon agar lebih intuitif
                                             icon: const Icon(Icons.edit_note),
                                             // Menambahkan circular border agar lebih rapi
@@ -87,7 +87,7 @@ class _BudgetFormPageState extends State<BudgetFormPage> {
                                     child: TextFormField(
                                         decoration: InputDecoration(
                                             hintText: "Contoh: 10000",
-                                            labelText: "Nominal Budget",
+                                            labelText: "Nominal",
                                             icon: const Icon(Icons.monetization_on_outlined),
                                             border: OutlineInputBorder(
                                                 borderRadius: BorderRadius.circular(5.0),
