@@ -188,6 +188,57 @@ Meskipun digantikan dengan halaman baru, halaman lama tidak akan dihapus kecuali
         import 'package:counter_7/drawer.dart';
         ```
 
+# TUGAS 9 PBP
+1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+   
+   Bisa, yaitu dengan memanfaatkan jsonDecode() dari dart:convert. Namun, cara tersebut kurang efisien secara waktu dan memori, best practicenya pengambilan json    dilakukan dengan membuat model terlebih dahulu karena selain dari struktur yang lebih rapih, menggunakan model juga akan memastikan tipe data setiap field model kita sesuai sehingga akan mempermudah pekerjaan kita kedepannya.
+
+2. Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+    - ```Drawer```: Untuk membuat drawer yang mengandung shortcut ke berbagai halaman yang ada di aplikasi
+    - ```Container```: Untuk container/wadah yang berisi widget-widget
+    - ```Text```: Untuk menampilkan teks
+    - ```Row``` : Untuk menyusun widget secara horizontal
+    - ```Column``` : Untuk menyusun widget secara vertikal
+    - ```ListView```: Untuk mengelompokkan beberapa item dan bisa di scroll dalam tampilannya
+    - ```FutureBuilder```: Untuk membuat widget berdasarkan interaksi dengan widget dan untuk fetching data
+3. Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
+
+   Data json didapatkan dengan melakukan fetch pada method yang ada di file ```fetch_mywatchlist.dart```. Setelah itu, data yang telah di fetch akan di convert berdasarkan kode yang ada di ```model/mywatchlist_model.dart```.
+4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas
+
+    A. Refactor file
+    - Membuat folder baru di dalam folder ```lib``` berupa ```model``` dan ```page```
+    - Memindahkan file2 selain ```main.dart``` ke dalam folder ```lib/page```
+
+    B. Membuat Model
+    - Membuat model mywatchlist dengan menyalin isi ```https://mei-watchlist.herokuapp.com/mywatchlist/json/``` ke web Quicktype kemudian mengubah setup name menjadi ```MyWatchListModel```, source type menjadi ```JSON```, dan language menjadi ```Dart```
+    - Membuat file bernama ```mywatchlist_model.dart``` di dalam folder ```lib/model``` dan menempel kode yang disalin dari web Quicktype
+    
+    C. Menambahkan Dependenci HTTP
+    - Menambahkan Dependenci HTTP dengan melakukan ```flutter pub add http``` pada terminal proyek Flutter
+    - Pada file ```android/app/src/main/AndroidManifest.xml```, tambahkan kode berikut untuk memperbolehkan akses Internet pada aplikasi Flutter yang sedang dibuat.
+        ```
+            ...
+    		<application>
+    		...
+   		    </application>
+    		<!-- Required to fetch data from the Internet. -->
+    		<uses-permission android:name="android.permission.INTERNET" />
+	        ...
+        ```
+
+    D. Mengambil dan Mengolah Data dari Web Service
+    - Membuat file baru pada folder ```lib/page``` dengan nama ```fetch_mywatchlist.dart```.
+    - Lakukan pengambilan data dari URL ```https://mei-watchlist.herokuapp.com/mywatchlist/json/``` dengan kode yang telah tercantum (ikutin tutorial 8)
+
+    E. Menampilkan Data dari Web Service
+    - Pada file ```drawer.dart``` tambahkan kode routing ke page mywatchlist untuk menambahkan menu ```My Watch List``` pada drawer yang telah dibuat (letakkan di bawah menu ```ListTile``` form).
+    - Mengisi file ```mywatchlist.dart```
+    - Menambahkan kode berikut (bawah) di dalam file ```mywatchlist.dart```
+        
+    F. Routing
+    - Menambahkan halaman mywatchlist ke dalam drawer dan melakukan routing
+    - Membuat file baru di dalam folde page bernama ```mywatchlist.dart```
 
 
 REPOSITORY: https://github.com/hapsarimeilany/pbp-flutter-lab.git
